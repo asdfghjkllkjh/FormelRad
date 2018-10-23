@@ -73,4 +73,9 @@ public class Calculator {
 		double i = p / u;
 		return i;
 	}
+
+	public double iAusPundR(double p, double r) {
+		double i = Math.sqrt(p / r);
+		return i;
+	}
 }
