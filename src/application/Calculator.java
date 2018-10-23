@@ -49,7 +49,13 @@ public class Calculator {
 		 */
 	}
 	
-	/* Hier die Methoden mit den Formlen hinzufügen
+	/* Hier die Methoden mit den Formlen hinzufï¿½gen
 	 */
-	
+	 
+	// Formeln fÃ¼r p (Leistung) 
+	public double pAusUundI(double u, double i) {
+		double p = u*i;
+		return p;
+	}
+
 }
