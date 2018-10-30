@@ -49,7 +49,12 @@ public class Calculator {
 		 */
 	}
 	
-	/* Hier die Methoden mit den Formlen hinzufügen
+	/* Hier die Methoden mit den Formlen hinzufï¿½gen
 	 */
-	
+
+	// Formeln fÃ¼r u (Spannung)
+	public double uAusPUndI(double p, double i) {
+		double u = p / i;
+		return u;
+	}
 }
