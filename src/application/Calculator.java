@@ -109,4 +109,8 @@ public class Calculator {
 	private double rAusUUndP(double u, double p) {
 		return Math.pow(u, 2)/p;
 	}
+
+	private double rAusUUndI(double u, double i) {
+		return u/i;
+	}
 }
