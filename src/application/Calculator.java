@@ -52,6 +52,12 @@ public class Calculator {
 	/* Hier die Methoden mit den Formlen hinzuf�gen
 	 */
 
+	// Formeln für i (Stromstärke)
+	public double iAusPundU(double p, double u) {
+		double i = p / u;
+		return i;
+	}
+
 	// Formeln für u (Spannung)
 	public double uAusPUndI(double p, double i) {
 		double u = p / i;
