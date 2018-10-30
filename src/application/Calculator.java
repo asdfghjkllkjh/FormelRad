@@ -99,4 +99,11 @@ public class Calculator {
 		double u = i * r;
 		return u;
 	}
+
+	// Widerstand berechnen
+
+	private double rAusPUndI (double p, double i) {
+		return p/Math.pow(i, 2);
+	}
+
 }
