@@ -52,6 +52,22 @@ public class Calculator {
 	/* Hier die Methoden mit den Formlen hinzuf�gen
 	 */
 
+	// Formeln für p (Leistung)
+	public double pAusUundI(double u, double i) {
+		double p = u*i;
+		return p;
+	}
+
+	public double pAusUundR(double u, double r) {
+		double p = u * u / r;
+		return p;
+	}
+
+	public double pAusRundI(double r, double i) {
+		double p = i * i * r;
+		return p;
+	}
+
 	// Formeln für i (Stromstärke)
 	public double iAusPundU(double p, double u) {
 		double i = p / u;
