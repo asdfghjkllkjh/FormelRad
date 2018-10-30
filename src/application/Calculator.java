@@ -58,6 +58,11 @@ public class Calculator {
 		return i;
 	}
 
+	public double iAusPundR(double p, double r) {
+		double i = Math.sqrt(p / r);
+		return i;
+	}
+
 	// Formeln für u (Spannung)
 	public double uAusPUndI(double p, double i) {
 		double u = p / i;
