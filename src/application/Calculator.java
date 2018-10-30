@@ -58,6 +58,11 @@ public class Calculator {
 		return p;
 	}
 
+	public double pAusUundR(double u, double r) {
+		double p = u * u / r;
+		return p;
+	}
+
 	// Formeln für i (Stromstärke)
 	public double iAusPundU(double p, double u) {
 		double i = p / u;
