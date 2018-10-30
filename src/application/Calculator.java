@@ -62,4 +62,9 @@ public class Calculator {
 		double u = Math.sqrt(p * r);
 		return u;
 	}
+
+	public double uAusIUndR(double i, double r) {
+		double u = i * r;
+		return u;
+	}
 }
