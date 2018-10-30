@@ -63,6 +63,11 @@ public class Calculator {
 		return i;
 	}
 
+	public double iAusUundR(double u, double r) {
+		double i = u / r;
+		return i;
+	}
+
 	// Formeln für u (Spannung)
 	public double uAusPUndI(double p, double i) {
 		double u = p / i;
