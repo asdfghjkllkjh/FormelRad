@@ -48,8 +48,8 @@ public class Calculator {
 		 * welche Methode unten aufgerufen werden muss.
 		 */
 	}
-	
-	/* Hier die Methoden mit den Formlen hinzuf�gen
+
+	/* Hier die Methoden mit den Formlen hinzufuegen
 	 */
 
 	// Formeln für p (Leistung)
