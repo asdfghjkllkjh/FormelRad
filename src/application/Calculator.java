@@ -44,13 +44,30 @@ public class Calculator {
 	}
 
 	public void calculate() {
-		/* Hier auf Grund der vorhanden Werte entscheiden
-		 * welche Methode unten aufgerufen werden muss.
-		 */
+		if (leistung != null && spannung != null) {
+			strom = pAusUundI(spannung, leistung);
+			widerstand = rAusUUndI(spannung, leistung);
+		} else if (leistung != null && strom != null) {
+			spannung = uAusPUndI(leistung, strom);
+			widerstand = rAusPUndI(leistung, strom);
+		} else if (leistung != null && widerstand != null) {
+			spannung = uAusPUndR(leistung, widerstand);
+			strom = iOutOfRAndP(widerstand, leistung);
+		} else if (spannung != null && strom != null) {
+			leistung = pAusUundI(spannung, strom);
+			widerstand = rAusUUndI(spannung, strom);
+		} else if (spannung != null && widerstand != null) {
+			leistung = pAusUundR(spannung, widerstand);
+			strom = iAusUundR(spannung, widerstand);
+		} else if (strom != null && widerstand != null) {
+			leistung = pAusRundI(widerstand, strom);
+			spannung = uAusIUndR(strom, widerstand);
+		} else {
+			throw new RuntimeException("Not enough args");
+		}
 	}
 	
-	/* Hier die Methoden mit den Formlen hinzuf�gen
-	 */
+	/* Hier die Methoden mit den Formlen hinzufügen */
 
 	// Formeln für p (Leistung)
 	public double pAusUundI(double u, double i) {
