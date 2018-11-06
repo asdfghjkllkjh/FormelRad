@@ -52,7 +52,7 @@ public class Calculator {
 			widerstand = rAusPUndI(leistung, strom);
 		} else if (leistung != null && widerstand != null) {
 			spannung = uAusPUndR(leistung, widerstand);
-			strom = iOutOfRAndP(widerstand, leistung);
+			strom = iAusPundR(leistung, widerstand);
 		} else if (spannung != null && strom != null) {
 			leistung = pAusUundI(spannung, strom);
 			widerstand = rAusUUndI(spannung, strom);
