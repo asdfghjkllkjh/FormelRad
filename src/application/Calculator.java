@@ -49,7 +49,7 @@ public class Calculator {
 		 */
 	}
 	
-	/* Hier die Methoden mit den Formlen hinzuf�gen
+	/* Hier die Methoden mit den Formlen hinzufügen
 	 */
 
 	// Formeln für p (Leistung)
