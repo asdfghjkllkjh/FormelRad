@@ -43,7 +43,7 @@ public class Calculator {
 				", widerstand="	+ widerstand + "]";
 	}
 
-	public void calculate() {
+	public boolean calculate() {
 		if (leistung != null && spannung != null) {
 			strom = pAusUundI(spannung, leistung);
 			widerstand = rAusUUndI(spannung, leistung);
@@ -65,6 +65,14 @@ public class Calculator {
 		} else {
 			throw new RuntimeException("Not enough args");
 		}
+		
+		long filled = Stream.of(leistung, spannung, strom, widerstand)
+                .filter(Objects::nonNull)
+                .count();
+        if (filled > 2) {
+            return false;
+        }
+        return true;
 	}
 	
 	/* Hier die Methoden mit den Formlen hinzufügen */
