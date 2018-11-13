@@ -43,7 +43,7 @@ public class Calculator {
 				", widerstand="	+ widerstand + "]";
 	}
 
-	public void calculate() {
+	public boolean calculate() {
 		if (leistung != null && spannung != null) {
 			strom = pAusUundI(spannung, leistung);
 			widerstand = rAusUUndI(spannung, leistung);
@@ -65,6 +65,14 @@ public class Calculator {
 		} else {
 			throw new RuntimeException("Not enough args");
 		}
+		
+		long filled = Stream.of(leistung, spannung, strom, widerstand)
+                .filter(Objects::nonNull)
+                .count();
+        if (filled > 2) {
+            return false;
+        }
+        return true;
 	}
 	
 	/* Hier die Methoden mit den Formlen hinzufügen */
@@ -72,62 +80,76 @@ public class Calculator {
 	// Formeln für p (Leistung)
 	public double pAusUundI(double u, double i) {
 		double p = u*i;
+		System.out.println("Leistung: "+p);
 		return p;
 	}
 
 	public double pAusUundR(double u, double r) {
 		double p = u * u / r;
+		System.out.println("Leistung: "+p);
 		return p;
 	}
 
 	public double pAusRundI(double r, double i) {
 		double p = i * i * r;
+		System.out.println("Leistung: "+p);
 		return p;
 	}
 
 	// Formeln für i (Stromstärke)
 	public double iAusPundU(double p, double u) {
 		double i = p / u;
+		System.out.println("Stromstärke: "+i);
 		return i;
 	}
 
 	public double iAusPundR(double p, double r) {
 		double i = Math.sqrt(p / r);
+		System.out.println("Stromstärke: "+i);
 		return i;
 	}
 
 	public double iAusUundR(double u, double r) {
 		double i = u / r;
+		System.out.println("Stromstärke: "+i);
 		return i;
 	}
 
 	// Formeln für u (Spannung)
 	public double uAusPUndI(double p, double i) {
 		double u = p / i;
+		System.out.println("Spannung: "+u);
 		return u;
 	}
 
 	public double uAusPUndR(double p, double r) {
 		double u = Math.sqrt(p * r);
+		System.out.println("Spannung: "+u);
 		return u;
 	}
 
 	public double uAusIUndR(double i, double r) {
 		double u = i * r;
+		System.out.println("Spannung: "+u);
 		return u;
 	}
 
 	// Widerstand berechnen
-
 	private double rAusPUndI (double p, double i) {
-		return p/Math.pow(i, 2);
+		double r = p/Math.pow(i, 2);
+		System.out.println("Widerstand:" +r);
+		return r;
 	}
 
 	private double rAusUUndP(double u, double p) {
-		return Math.pow(u, 2)/p;
+		double r = Math.pow(u, 2)/p;
+		System.out.println("Widerstand:" +r);
+		return r;
 	}
 
 	private double rAusUUndI(double u, double i) {
-		return u/i;
+		double r = u/i;
+		System.out.println("Widerstand:" +r);
+		return r;
 	}
 }

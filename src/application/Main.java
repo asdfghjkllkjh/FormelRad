@@ -12,6 +12,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+import java.io.FileInputStream;
+import static javafx.scene.control.Alert.AlertType.WARNING;
 
 /**
  * Formelrad Application
@@ -85,12 +89,51 @@ public class Main extends Application {
 						Double.parseDouble(txSpannung.getText()),
 						Double.parseDouble(txStrom.getText()),
 						Double.parseDouble(txWiderstand.getText()));
+				
+				boolean isWiderstandNull = myCalculator.getWiderstand() == null;
+				boolean isSpannungNull = myCalculator.getSpannung() == null;
+				boolean isStromNull = myCalculator.getStrom() == null;
+				boolean isLeistungNull = myCalculator.getLeistung() == null;
+				
 				System.out.print("Vorher:  ");
 				System.out.println(myCalculator.toString());
-				myCalculator.calculate();
+				boolean inputOk = myCalculator.calculate();
+				if (!inputOk) {
+                    Alert alert = new Alert(WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("More than two values");
+                    alert.setContentText("You've entered more than two values. Sure you wanna do this?");
+                    alert.showAndWait();
+                }
 				System.out.print("Nachher: ");
 				System.out.println(myCalculator.toString());
-					
+				
+				// Set texts for calculatet values
+				txWiderstand.setStyle("-fx-text-inner-color: black;");
+				txSpannung.setStyle("-fx-text-inner-color: black;");
+				txStrom.setStyle("-fx-text-inner-color: black;");
+				txLeistung.setStyle("-fx-text-inner-color: black;");
+				
+				txWiderstand.setText(Double.toString(myCalculator.getWiderstand()));
+				if(isWiderstandNull) {
+					txWiderstand.setStyle("-fx-text-inner-color: red;");
+				}
+				
+				txSpannung.setText(Double.toString(myCalculator.getSpannung()));
+				if(isSpannungNull) {
+					txSpannung.setStyle("-fx-text-inner-color: red;");
+				}
+				
+				txStrom.setText(Double.toString(myCalculator.getStrom()));
+				if(isStromNull) {
+					txStrom.setStyle("-fx-text-inner-color: red;");
+				}
+				
+ 				txLeistung.setText(Double.toString(myCalculator.getLeistung()));
+				if(isLeistungNull) {
+					txLeistung.setStyle("-fx-text-inner-color: red;");
+				}
+				
 				txLeistung.setText(Double.toString(myCalculator.getLeistung()));
 				txSpannung.setText(Double.toString(myCalculator.getSpannung()));
 				txStrom.setText(Double.toString(myCalculator.getStrom()));
