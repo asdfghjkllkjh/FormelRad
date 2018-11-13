@@ -12,6 +12,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+import java.io.FileInputStream;
+import static javafx.scene.control.Alert.AlertType.WARNING;
 
 /**
  * Formelrad Application
@@ -87,7 +91,14 @@ public class Main extends Application {
 						Double.parseDouble(txWiderstand.getText()));
 				System.out.print("Vorher:  ");
 				System.out.println(myCalculator.toString());
-				myCalculator.calculate();
+				boolean inputOk = myCalculator.calculate();
+				if (!inputOk) {
+                    Alert alert = new Alert(WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("More than two values");
+                    alert.setContentText("You've entered more than two values. Sure you wanna do this?");
+                    alert.showAndWait();
+                }
 				System.out.print("Nachher: ");
 				System.out.println(myCalculator.toString());
 					
